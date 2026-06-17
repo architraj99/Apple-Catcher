@@ -1,3 +1,11 @@
+:root{
+    --paper:#efe6d3;
+    --ink:#222;
+    --red:#c64031;
+    --leaf:#537434;
+    --wood:#805634;
+}
+
 *{
     margin:0;
     padding:0;
@@ -5,6 +13,9 @@
 }
 
 body{
+    overflow:hidden;
+    background:var(--paper);
+    color:var(--ink);
     font-family:Arial,sans-serif;
 }
 
@@ -14,7 +25,49 @@ body{
     position:relative;
 }
 
+.hud{
+    position:fixed;
+    top:18px;
+    left:18px;
+    display:flex;
+    gap:28px;
+    font-weight:bold;
+}
+
 #bucket{
     position:absolute;
+    width:120px;
+    height:48px;
     bottom:30px;
+    border:3px solid #222;
+    background:var(--wood);
+}
+
+.bucket-rim{
+    position:absolute;
+    top:-10px;
+    left:-6px;
+    width:126px;
+    height:10px;
+    border:3px solid #222;
+    background:#ceb188;
+}
+
+.apple{
+    position:absolute;
+    width:30px;
+    height:30px;
+    border:2px solid #222;
+    background:var(--red);
+}
+
+.apple::before{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:4px;
+    top:-7px;
+    left:9px;
+    background:var(--leaf);
+    border:2px solid #222;
 }
