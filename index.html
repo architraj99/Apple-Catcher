@@ -12,9 +12,37 @@
     <div>Score <span id="score">0</span></div>
 
     <div>Lives <span id="lives">3</span></div>
-
+    
     <div>Best <span id="best">0</span></div>
 
+</div>
+
+<div id="startScreen" class="overlay">
+    
+    <div class="panel">
+
+        <h1>APPLE CATCHER</h1>
+
+        <p>Move with mouse, touch or arrow keys.</p>
+        <p>Golden apples = 5 points.</p>
+        <p>Press SPACE to pause.</p>
+        <p>Press Esc to Restart.</p>
+
+        <button id="startBtn">Start Game</button>
+    </div>
+</div>
+
+<div id="gameOver" class="overlay hidden">
+    
+    <div class="panel">
+        
+        <h2>Game Over</h2>
+        
+        <p>Final Score: <span id="finalScore">0</span></p>
+        
+        <button id="restartBtn">Play Again</button>
+    
+    </div>
 </div>
 
 <div id="field">
@@ -25,5 +53,6 @@
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>

@@ -42,6 +42,7 @@ body{
     width:120px;
     height:48px;
     bottom:30px;
+
     border:3px solid #222;
     background:var(--wood);
 }
@@ -65,6 +66,7 @@ body{
 }
 
 .apple::before{
+
     content:"";
     position:absolute;
     width:10px;
@@ -100,10 +102,68 @@ body{
     min-width:320px;
 }
 
+.panel h1,
+.panel h2{
+    margin-bottom:15px;
+}
+
+.panel p{
+    margin-bottom:10px;
+}
+
 button{
     margin-top:15px;
     border:3px solid #222;
     background:#fff;
     padding:12px 20px;
     cursor:pointer;
+    font-size:15px;
+}
+
+button:hover {
+    transform:translateY(-2px);
+}
+
+@media(max-width:900px) {
+
+    .hud{
+        gap:16px;
+        font-size:14px;
+    }
+
+    .panel{
+        min-width:auto;
+        width:90vw;
+        padding:28px;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .hud{
+        left:12px;
+        top:12px;
+        gap:12px;
+        font-size:13px;
+        flex-wrap:wrap;
+    }
+
+    #bucket{
+        width:100px;
+        height:42px;
+    }
+
+    .bucket-rim{
+        width:106px;
+    }
+
+    .panel{
+        width:92vw;
+        padding:22px;
+    }
+
+    button{
+        width:100%;
+    }
 }

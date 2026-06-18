@@ -53,6 +53,7 @@ function updateApples() {
     game.apples = game.apples.filter(apple => {
 
         apple.y += apple.speed;
+
         apple.node.style.top = `${apple.y}px`;
 
         const rect = apple.node.getBoundingClientRect();
@@ -89,6 +90,7 @@ function updateApples() {
 function finishGame() {
 
     game.running = false;
+    game.paused = false;
     finalScore.textContent = game.score;
 
     if (game.score > best) {
@@ -133,6 +135,10 @@ window.addEventListener("keydown", e => {
     if (e.code === "Space") {
         game.paused = !game.paused;
     }
+
+    if (e.key === "Escape" && !game.running) {
+        startGame();
+    }
 });
 
 window.addEventListener("keyup", e => {
@@ -169,6 +175,15 @@ field.addEventListener("mousemove", e => {
     game.bucketX = e.clientX - bucket.offsetWidth / 2;
 });
 
+field.addEventListener("touchmove", event => {
+
+    if (!game.running) return;
+
+    const touch = event.touches[0];
+
+    game.bucketX = touch.clientX - bucket.offsetWidth / 2;
+}, { passive:true });
+
 function startGame() {
 
     game.score = 0;
@@ -189,6 +204,13 @@ function startGame() {
     startScreen.classList.add("hidden");
     gameOverScreen.classList.add("hidden");
 }
+
+window.addEventListener("resize", () => {
+
+    const limit = window.innerWidth - bucket.offsetWidth;
+    game.bucketX = Math.max(0, Math.min(limit, game.bucketX));
+    bucket.style.left = `${game.bucketX}px`;
+});
 
 startBtn.addEventListener("click", startGame);
 restartBtn.addEventListener("click", startGame);
